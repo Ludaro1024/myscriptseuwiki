@@ -35,8 +35,8 @@ const config = {
       ({
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
+  
+          routeBasePath: '/', // Set this value to '/'.
           editUrl: ({locale, docPath}) => {
             if (locale !== "de") {
               return `https://github.com/Ludaro1024/myscriptseuwiki/tree/main/i18n/${locale}/docusaurus-plugin-content-docs/current/${docPath}`;
@@ -88,8 +88,8 @@ const config = {
         copyright: `Copyright © ${new Date().getFullYear()} MyScripts.eu.`,
       },
       prism: {
-        theme: lightCodeTheme,
-        darkTheme: darkCodeTheme,
+        theme: darkCodeThemee,
+        darkTheme: lightCodeTheme,
       },
     }),
 };
