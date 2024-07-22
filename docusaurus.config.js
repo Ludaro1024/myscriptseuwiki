@@ -36,7 +36,7 @@ const config = {
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
   
-          routeBasePath: '/', // Set this value to '/'.
+          // routeBasePath: '/', // Set this value to '/'.
           editUrl: ({locale, docPath}) => {
             if (locale !== "de") {
               return `https://github.com/Ludaro1024/myscriptseuwiki/tree/main/i18n/${locale}/docusaurus-plugin-content-docs/current/${docPath}`;
