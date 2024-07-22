@@ -88,7 +88,7 @@ const config = {
         copyright: `Copyright © ${new Date().getFullYear()} MyScripts.eu.`,
       },
       prism: {
-        theme: darkCodeThemee,
+        theme: darkCodeTheme,
         darkTheme: lightCodeTheme,
       },
     }),
