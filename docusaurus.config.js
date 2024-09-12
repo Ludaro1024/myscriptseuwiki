@@ -7,7 +7,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'MyScripts Wiki',
-  tagline: 'FiveM Quality!',
+  tagline: 'FiveM Quality Scripts!',
   url: 'https://wiki.myscripts.eu',
   baseUrl: '/',
   onBrokenLinks: 'throw',
@@ -83,6 +83,9 @@ const config = {
       //     },
       //   ],
       // },
+      defaultMode: 'dark',
+      disableSwitch: false,
+      respectPrefersColorScheme: false,
       footer: {
         style: 'dark',
         copyright: `Copyright © ${new Date().getFullYear()} MyScripts.eu.`,
