@@ -1,8 +1,8 @@
 // @ts-check
 // Note: type annotations allow type checking and IDEs autocompletion
 
-const lightCodeTheme = require('prism-react-renderer/themes/github');
-const darkCodeTheme = require('prism-react-renderer/themes/dracula');
+const lightCodeTheme = require('prism-react-renderer/themes/dracula');
+const darkCodeTheme = require('prism-react-renderer/themes/github');
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
@@ -27,7 +27,6 @@ const config = {
     locales: ['de', 'en']
   },
 
-
   presets: [
     [
       'classic',
@@ -41,10 +40,9 @@ const config = {
             if (locale !== "de") {
               return `https://github.com/Ludaro1024/myscriptseuwiki/tree/main/i18n/${locale}/docusaurus-plugin-content-docs/current/${docPath}`;
             }
-            
             return `https://github.com/Ludaro1024/myscriptseuwiki/blob/main/docs/${docPath}`;
           },
-      },
+        },
         // blog: {
         //   showReadingTime: true,
         //   // Please change this to your repo.
@@ -74,88 +72,58 @@ const config = {
             label: 'GitHub',
             position: 'right',
           },
+          {
+            type: 'localeDropdown',
+            position: 'right',
+            dropdownItemsAfter: [
+              {
+                type: 'html',
+                value: '<hr style="margin: 0.3rem 0;">',
+              },
+              {
+                href: 'https://github.com/Ludaro1024/ludaro-wiki-ger/i18n/',
+                label: 'Help me Translate!',
+              },
+            ],
+          },
         ],
       },
-      {
-        type: 'localeDropdown',
-        position: 'right',
-        dropdownItemsAfter: [
-          {
-            type: 'html',
-            value: '<hr style="margin: 0.3rem 0;">',
-          },
-          {
-            href: 'https://github.com/Ludaro1024/ludaro-wiki-ger/i18n/',
-            label: 'Help me Translate!',
-          },
-          ],
-        },
       defaultMode: 'dark',
       disableSwitch: false,
       respectPrefersColorScheme: false,
       footer: {
         style: 'dark',
-        copyright: `Copyright © ${new Date().getFullYear()} MyScripts.eu.`,
+        links: [
+          {
+            title: 'Important Links:',
+            items: [
+              {
+                label: "Discord",
+                href: "https://discord.gg/N4Br9HDy",
+              },
+              {
+                label: "Shop",
+                href: "https://myscripts.eu",
+              },
+            ],
+          },
+        ],
+        logo: {
+          alt: 'Myscripts logo',
+          src: 'img/logo.png',
+          className: 'footer-logo',
+          href: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+          width: 100,
+          height: 100,
+        },
+        copyright: `Copyright © ${new Date().getFullYear()} MyScripts, written with ❤️ for you with Docusaurus`,
       },
       prism: {
+        additionalLanguages: ['powershell', 'lua', 'php', 'csharp', 'css', 'javascript', 'sql', 'json', 'git', 'diff'],
         theme: darkCodeTheme,
         darkTheme: lightCodeTheme,
       },
     }),
-    footer: {
-      style: 'dark',
-      links: [
-        // {
-        //   title: 'Docs',
-        //   items: [
-        //     {
-        //       label: 'Tutorial',
-        //       to: '/docs/intro',
-        //     },
-        //   ],
-        // },
-        // {
-        //   title: 'More',
-        //   items: [
-        //     {
-        //       label: 'Blog',
-        //       to: '/blog',
-        //     },
-        //     {
-        //       label: 'GitHub',
-        //       href: 'https://github.com/facebook/docusaurus',
-        //     },
-        //   ],
-        // },
-        {
-          title: 'Important Links:',
-          items: [
-            {
-              label: "Discord",
-              href: "https://discord.gg/N4Br9HDy",
-            },
-            {
-              label: "Shop"
-              href: "https://myscripts.eu"
-            }
-           
-          ],
-        },
-      ],
-      logo: {
-        alt: 'Myscripts logo',
-        src: 'img/logo.png',
-        className: 'footer-logo',
-        href: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
-        width: 100,
-        height: 100,
-      },
-      copyright: `Copyright © ${new Date().getFullYear()} MyScripts, written with ❤️ for you with Docusaurus`,
-    },
-    prism: {
-      additionalLanguages: ['powershell', 'lua', 'php', 'csharp', 'css', 'javascript', 'sql', 'json', 'git', 'diff'],
-      theme: darkCodeTheme
-    },
 };
 
 module.exports = config;
