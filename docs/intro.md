@@ -8,3 +8,5 @@ Welcome to the MyScripts.eu Wiki! here is everything documented of all myScripts
 
 
 this is work in progress right now!
+
+Luis ist Cool
