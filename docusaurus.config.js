@@ -58,6 +58,7 @@ const config = {
   ],
 
   themeConfig:
+  forceDarkMode: true,
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       navbar: {
@@ -120,8 +121,8 @@ const config = {
       },
       prism: {
         additionalLanguages: ['powershell', 'lua', 'php', 'csharp', 'css', 'javascript', 'sql', 'json', 'git', 'diff'],
-        theme: lightCodeTheme,
-        darkTheme: darkCodeTheme,
+        theme: darkCodeTheme,
+        darkTheme: lightCodeTheme,
       },
     }),
 };
