@@ -1,7 +1,7 @@
 ---
 sidebar_position: 1
-title: Events
-sidebar_label: Events
+title: Events & Funktionen
+sidebar_label: Events & Funktionen
 ---
 
 import CodeBlock from '@theme/CodeBlock';
@@ -16,9 +16,9 @@ Diese Dokumentation beschreibt die verschiedenen Events und Funktionen des `myBi
 
 Öffnet das Rechnungsmenü für den Spieler.
 
-<CodeBlock language="lua">
+```lua
 {`TriggerEvent('myBills:openMenu')`}
-</CodeBlock>
+```
 
 ### `myBills:receiveBills`
 
@@ -28,12 +28,12 @@ Empfängt und zeigt die Rechnungen und Steuerrechnungen des Spielers an.
 - `bills` (Tabelle): Liste der Rechnungen.
 - `taxbills` (Tabelle): Liste der Steuerrechnungen.
 
-<CodeBlock language="lua">
+```lua
 {`RegisterNetEvent('myBills:receiveBills')
 AddEventHandler('myBills:receiveBills', function(bills, taxbills)
     -- Verarbeitung der erhaltenen Rechnungen
 end)`}
-</CodeBlock>
+```
 
 ### `myBills:gotInvoice`
 
@@ -46,20 +46,20 @@ Benachrichtigt den Spieler über eine neue Rechnung und fordert zur Annahme oder
 - `label` (String): Beschreibung der Rechnung.
 - `amount` (Zahl): Betrag der Rechnung.
 
-<CodeBlock language="lua">
+```lua
 {`RegisterNetEvent('myBills:gotInvoice')
 AddEventHandler('myBills:gotInvoice', function(sender, playerIdentifier, sharedAccountName, label, amount)
     -- Verarbeitung der neuen Rechnung
 end)`}
-</CodeBlock>
+```
 
 ### `myBills:refreshMenu`
 
 Aktualisiert das Rechnungsmenü, um Änderungen widerzuspiegeln.
 
-<CodeBlock language="lua">
+```lua
 {`TriggerEvent('myBills:refreshMenu')`}
-</CodeBlock>
+```
 
 ### `myBills:msg`
 
@@ -68,9 +68,9 @@ Zeigt dem Spieler eine Benachrichtigung an.
 **Argumente**:
 - `message` (String): Die anzuzeigende Nachricht.
 
-<CodeBlock language="lua">
+```lua
 {`TriggerEvent('myBills:msg', 'Ihre Rechnung wurde bezahlt.')`}
-</CodeBlock>
+```
 
 ## Serverseitige Events
 
@@ -84,9 +84,9 @@ Sendet eine Gesellschaftsrechnung an einen Spieler.
 - `label` (String): Beschreibung der Rechnung.
 - `amount` (Integer): Betrag der Rechnung.
 
-<CodeBlock language="lua">
+```lua
 {`TriggerEvent('esx_billing:sendSocietyBill', playerId, 'society_police', 'Strafzettel', 500)`}
-</CodeBlock>
+```
 
 ### `esx_billing:sendBillDirect`
 
@@ -98,9 +98,9 @@ Sendet eine direkte Rechnung an einen Spieler ohne Annahmebestätigung.
 - `label` (String): Beschreibung der Rechnung.
 - `amount` (Integer): Betrag der Rechnung.
 
-<CodeBlock language="lua">
+```lua
 {`TriggerEvent('esx_billing:sendBillDirect', playerId, 'society_mechanic', 'Reparaturkosten', 250)`}
-</CodeBlock>
+```
 
 ### `myBills:gotAnswerForBill`
 
@@ -115,17 +115,17 @@ Verarbeitet die Antwort des Spielers auf eine Rechnung (Annahme oder Ablehnung).
 - `state` (Boolean): `true` für angenommen, `false` für abgelehnt.
 - `hideMessage` (Boolean, optional): Ob die Nachricht ausgeblendet werden soll.
 
-<CodeBlock language="lua">
+```lua
 {`TriggerEvent('myBills:gotAnswerForBill', sender, playerIdentifier, 'society_police', 'Strafzettel', 500, true, false)`}
-</CodeBlock>
+```
 
 ### `myBills:importbills`
 
 Importiert vorhandene Rechnungen in das Steuerrechnungssystem.
 
-<CodeBlock language="lua">
+```lua
 {`TriggerEvent('myBills:importbills')`}
-</CodeBlock>
+```
 
 ## Serverseitige Funktionen
 
@@ -137,9 +137,9 @@ Sendet eine Nachricht an den angegebenen Discord-Webhook.
 - `webhook` (String): URL des Discord-Webhooks.
 - `message` (String): Die zu sendende Nachricht.
 
-<CodeBlock language="lua">
+```lua
 {`SendWebhookMessage('https://discordapp.com/api/webhooks/...', 'Neue Rechnung erstellt.')`}
-</CodeBlock>
+```
 
 ### `requestPlayerBills`
 
@@ -148,9 +148,9 @@ Ruft die Rechnungen und Steuerrechnungen des Spielers ab und sendet sie an den C
 **Argumente**:
 - `_source` (Integer): Server-ID des Spielers.
 
-<CodeBlock language="lua">
+```lua
 {`requestPlayerBills(source)`}
-</CodeBlock>
+```
 
 ### `payBill`
 
@@ -165,9 +165,9 @@ Verarbeitet die Zahlung einer Rechnung durch den Spieler.
 - `sender` (String): Identifier des Absenders.
 - `_source` (Integer): Server-ID des Spielers.
 
-<CodeBlock language="lua">
+```lua
 {`payBill('billing', 101, 'society', 'society_police', 500, 'identifier_des_senders', source)`}
-</CodeBlock>
+```
 
 ### `sendBill`
 
@@ -180,9 +180,9 @@ Sendet eine Rechnung an einen Spieler, die dessen Annahme erfordert.
 - `amount` (Integer): Betrag der Rechnung.
 - `_source` (Integer): Server-ID des Absenders.
 
-<CodeBlock language="lua">
+```lua
 {`sendBill(targetPlayerId, 'society_police', 'Reparaturkosten', 300, source)`}
-</CodeBlock>
+```
 
 ### `PayTaxbills`
 
@@ -193,9 +193,9 @@ Verarbeitet die geplante Zahlung von Steuerrechnungen.
 - `h` (Integer): Die aktuelle Stunde.
 - `m` (Integer): Die aktuelle Minute.
 
-<CodeBlock language="lua">
+```lua
 {`PayTaxbills(day, hour, minute)`}
-</CodeBlock>
+```
 
 ### `ImportBills`
 
@@ -206,9 +206,9 @@ Importiert alle bestehenden Rechnungen in das Steuerrechnungssystem.
 - `h` (Integer): Die aktuelle Stunde.
 - `m` (Integer): Die aktuelle Minute.
 
-<CodeBlock language="lua">
+```lua
 {`ImportBills(day, hour, minute)`}
-</CodeBlock>
+```
 
 ## Server Callbacks
 
@@ -221,12 +221,12 @@ Ruft alle offenen Rechnungen für einen angegebenen Zielspieler ab.
 - `cb` (Callback-Funktion): Funktion, die die Liste der Rechnungen zurückgibt.
 - `target` (Integer): Die Server-ID des Zielspielers.
 
-<CodeBlock language="lua">
+```lua
 {`ESX.RegisterServerCallback('esx_billing:getTargetBills', function(source, cb, target)
     -- Logik zum Abrufen der Rechnungen
     cb(bills)
 end)`}
-</CodeBlock>
+```
 
 ### `esx_billing:getBills`
 
@@ -236,12 +236,12 @@ Ruft die Liste aller offenen Rechnungen des anfragenden Spielers ab.
 - `source` (Integer): Die Server-ID des Spielers.
 - `cb` (Callback-Funktion): Funktion, die die Liste der Rechnungen zurückgibt.
 
-<CodeBlock language="lua">
+```lua
 {`ESX.RegisterServerCallback('esx_billing:getBills', function(source, cb)
     -- Logik zum Abrufen der Rechnungen des Spielers
     cb(bills)
 end)`}
-</CodeBlock>
+```
 
 ### `myBilling:getJobname`
 
@@ -251,9 +251,9 @@ Ruft den Jobnamen des Spielers ab und gibt ihn an den Callback zurück.
 - `source` (Integer): Die Server-ID des Spielers.
 - `cb` (Callback-Funktion): Funktion, die den Jobnamen zurückgibt.
 
-<CodeBlock language="lua">
+```lua
 {`ESX.RegisterServerCallback('myBilling:getJobname', function(source, cb)
     -- Rückgabe des Jobnamens
     cb(jobname)
 end)`}
-</CodeBlock>
+```
