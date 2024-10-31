@@ -4,16 +4,20 @@ title: Konfiguration
 sidebar_label: Konfiguration
 ---
 
+## Erklärung
+
+Hier wird erklärt was für Konfigurationsmöglichkeiten du in myBilling hast, und welche Werte du setzen kannst.
+
 ### 1. Berechtigungen für das Ausstellen von Rechnungen
 
-```lua
+<CodeBlock language="lua">
 Config.CanEverybodyGiveBills = false
 Config.OnlyCertainJobsCanGiveBills = true
 Config.WhitelistedJobs = {
     'police',
     'ambulance',
 }
-```
+</CodeBlock>
 
 - **`CanEverybodyGiveBills`**:
   - **Beschreibung**: Bestimmt, ob alle Spieler Rechnungen ausstellen können.
@@ -33,9 +37,9 @@ Config.WhitelistedJobs = {
 
 ### 2. Automatische Teilzahlungen
 
-```lua
+<CodeBlock language="lua">
 Config.PayBillsTime = {h = 21, m = 00}
-```
+</CodeBlock>
 
 - **Beschreibung**: Legt die Uhrzeit fest, zu der offene Rechnungen automatisch in Teilbeträgen bezahlt werden.
 - **Format**: `{h = Stunde, m = Minute}` im 24-Stunden-Format.
@@ -43,10 +47,10 @@ Config.PayBillsTime = {h = 21, m = 00}
 
 ### 3. Tastenbelegung für das Rechnungsmenü
 
-```lua
+<CodeBlock language="lua">
 Config.enableKeyUsage = true
 Config.Key = 168
-```
+</CodeBlock>
 
 - **`enableKeyUsage`**:
   - **Beschreibung**: Aktiviert oder deaktiviert die Möglichkeit, das Rechnungsmenü über eine Taste zu öffnen.
@@ -63,13 +67,13 @@ Config.Key = 168
 
 ### 4. Discord-Webhooks für Benachrichtigungen
 
-```lua
+<CodeBlock language="lua">
 Config.useDiscordWebhooks = true
 Config.Webhooks = {
     ['society_police'] = GetConvar("webhook_police_invoice", "Failed to load webhook error!"),
     ['society_example'] = GetConvar("webhook_example", "Failed to load webhook error!"),
 }
-```
+</CodeBlock>
 
 - **`useDiscordWebhooks`**:
   - **Beschreibung**: Aktiviert oder deaktiviert die Verwendung von Discord-Webhooks für Benachrichtigungen.
@@ -81,25 +85,25 @@ Config.Webhooks = {
   - **Beschreibung**: Definiert die Webhook-URLs für verschiedene Gesellschaften.
   - **Hinweis**: Die Webhook-URLs sollten in der `server.cfg`-Datei des Servers als Convars definiert werden.
   - **Beispiel**:
-    ```lua
+    <CodeBlock language="lua">
     set webhook_example "https://discordapp.com/api/webhooks/..."
-    ```
+    </CodeBlock>
 
   **Anleitung zum Setzen eines Convars**:
   - Öffnen Sie die `server.cfg`-Datei Ihres Servers.
   - Fügen Sie die folgende Zeile hinzu:
-    ```lua
+    <CodeBlock language="lua">
     set webhook_example "https://discordapp.com/api/webhooks/..."
-    ```
+    </CodeBlock>
   - Ersetzen Sie den Platzhalter durch Ihre tatsächliche Webhook-URL.
 
   Weitere Informationen zu Convars finden Sie in der [FiveM-Dokumentation](https://docs.fivem.net/docs/scripting-reference/convars/).
 
 ### 5. Kompatibilitätseinstellungen für ESX
 
-```lua
+<CodeBlock language="lua">
 Config.useNewESX = false
-```
+</CodeBlock>
 
 - **Beschreibung**: Bestimmt, ob die neue Version von ESX verwendet wird.
 - **Mögliche Werte**:
@@ -108,10 +112,10 @@ Config.useNewESX = false
 
 ### 6. Zahlungsabwicklung
 
-```lua
+<CodeBlock language="lua">
 Config.useAccountMoney = true
 Config.Account = 'bank'
-```
+</CodeBlock>
 
 - **`useAccountMoney`**:
   - **Beschreibung**: Legt fest, ob Zahlungen über ein Konto abgewickelt werden.
@@ -128,8 +132,7 @@ Config.Account = 'bank'
 ---
 
 ## Ganze Konfigurationsdatei (config.lua)
-    
-    ```lua
+<CodeBlock language="lua">
     Config = {}
 Translation = {}
 
@@ -253,4 +256,4 @@ Translation = {
         ['no_society'] = '~r~You do not have a society!',
     }
 }
-```
+</CodeBlock>
