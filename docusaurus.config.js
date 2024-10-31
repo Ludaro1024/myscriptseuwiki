@@ -58,9 +58,9 @@ const config = {
   ],
 
   themeConfig:
-  forceDarkMode: true,
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
+      forceDarkMode: true,
       navbar: {
         title: 'MyScripts Wiki',
         logo: {
