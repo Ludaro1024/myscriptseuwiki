@@ -120,8 +120,8 @@ const config = {
       },
       prism: {
         additionalLanguages: ['powershell', 'lua', 'php', 'csharp', 'css', 'javascript', 'sql', 'json', 'git', 'diff'],
-        theme: darkCodeTheme,
-        darkTheme: lightCodeTheme,
+        theme: lightCodeTheme,
+        darkTheme: darkCodeTheme,
       },
     }),
 };
