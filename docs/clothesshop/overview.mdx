@@ -1,0 +1,52 @@
+---
+sidebar_position: 1
+title: Überblick
+sidebar_label: Überblick
+---
+
+**myClothesshop** ist ein vielseitiges Kleidungsverwaltungssystem für FiveM, das Spielern ermöglicht, Kleidung zu kaufen und Outfits zu speichern. Mit dem **myClothesshop API**-Zusatzskript können Outfits direkt in Kleiderschränken gespeichert und verwaltet werden.
+
+## Hauptfunktionen von myClothesshop
+
+- **Outfit-Speicherung**: Mit der API können Spieler Outfits in Kleiderschränken speichern und jederzeit abrufen.
+- **Benutzerfreundliches Design**: NativeUI-basierte Menüs erleichtern die Navigation und bieten ein modernes Interface.
+- **No Torso Bug-Funktionalität**: Das System behebt den bekannten "No Torso"-Bug, jedoch nur bei Standard-Kleidung (nicht bei Addon-Gegenständen), da diese korrekt gelistet und sortiert sind.
+- **Umfangreiche Konfiguration**: Das System bietet zahlreiche Anpassungsmöglichkeiten in der `config.lua` für individuelle Serveranforderungen.
+
+---
+
+## Installation und Einrichtung
+
+### Voraussetzungen
+
+Stellen Sie sicher, dass die folgenden Komponenten korrekt installiert und in der `server.cfg` aktiviert sind:
+
+1. **NativeUIReloaded**: Laden Sie **NativeUIReloaded** herunter und platzieren Sie es im `resources`-Ordner. Es muss vor **myClothesshop** gestartet werden.
+2. **ESX oder QBCore**: myClothesshop ist kompatibel mit beiden Frameworks. Verwenden Sie die passende Version (`myClothesshop` für ESX oder `myClothesshop_QB` für QBCore).
+
+### Installationsschritte
+
+1. **Skripte hinzufügen**: Kopieren Sie **myClothesshop** und **myClothesshopAPI** in Ihren `resources`-Ordner.
+2. **Datenbank konfigurieren**: Importieren Sie die in `myClothesshopAPI` enthaltene `.sql`-Datei in Ihre Datenbank.
+3. **Server-Konfiguration**: Öffnen Sie `server.cfg` und fügen Sie die folgenden Zeilen hinzu:
+
+    ```lua
+    ensure NativeUIReloaded
+    ensure myClothesshop
+    ensure myClothesshopAPI
+    ```
+
+   Die Reihenfolge des Starts spielt keine Rolle.
+
+4. **Outfit-Funktionen**: Beachten Sie, dass Outfits nur dann speicherbar sind, wenn die `myClothesshopAPI` gestartet ist.
+
+---
+
+## Wichtige Hinweise
+
+- **Outfit-Speicherung ohne API**: Ohne die API sind keine Outfit-Speicherfunktionen in Geschäften und Kleiderschränken verfügbar.
+- **No Torso Bug nur für Standard-Kleidung**: Der Bug wird nur für Standardkleidung gelöst, nicht für Addon-Kleidung, da diese nicht automatisch erfasst werden kann.
+  
+---
+
+Mit dieser Anleitung sollte myClothesshop erfolgreich installiert und konfiguriert werden können. Bei Fragen steht der [Discord-Server für Support](https://discord.gg/UyAu2jABzE) zur Verfügung.

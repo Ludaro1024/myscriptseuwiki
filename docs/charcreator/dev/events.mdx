@@ -1,0 +1,54 @@
+---
+sidebar_position: 4
+title: Events
+sidebar_label: Events
+---
+
+In diesem Abschnitt findest du die Events, die **myCharCreator** unterstützt. Diese Events ermöglichen dir die Verwaltung und Anpassung der Charaktererstellung und Speicherung.
+
+## Verfügbare Events
+
+### `myCreator:openMenu`
+
+**Beschreibung**: Öffnet das Charaktererstellungsmenü für den Spieler.  
+**Verwendung**: Dieses Event wird verwendet, um das Erstellungsmenü für den Charakter manuell zu starten, ohne dass der Spieler einen bestimmten Befehl eingeben muss.
+
+```lua
+TriggerEvent('myCreator:openMenu')
+```
+
+---
+
+### `register:saveSkin`
+
+**Beschreibung**: Speichert die Skin-Daten des Charakters in der Datenbank.  
+**Verwendung**: Wird nach Abschluss der Charaktererstellung aufgerufen, um das Aussehen des Charakters für zukünftige Spielsitzungen zu speichern.
+
+```lua
+TriggerServerEvent('register:saveSkin', skin)
+```
+
+- **Parameter**: 
+  - `skin` (table): Enthält die Skin-Daten, einschließlich aller charakterrelevanten Anpassungen, die während der Erstellung festgelegt wurden.
+
+---
+
+### Server-Callback: `myCharCreator:getGroup`
+
+**Beschreibung**: Ruft die Berechtigungsgruppe eines Spielers ab. Dieses Callback-Event prüft, ob ein Spieler die nötigen Berechtigungen hat, um auf die Charaktererstellung zuzugreifen.  
+**Verwendung**: Nützlich, wenn du in der `config.lua` die Einstellung `Cfg.PermissionsRequired` aktiviert hast und sicherstellen möchtest, dass nur bestimmte Gruppen (z. B. Admins) das Erstellungsmenü verwenden dürfen.
+
+```lua
+ESX.TriggerServerCallback('myCharCreator:getGroup', function(group)
+    if group == 'admin' then
+        -- Öffnet das Menü nur für Spieler in der Admin-Gruppe
+        showCreator()
+    end
+end)
+```
+
+**Rückgabewert**:
+- `group` (string): Gibt die Gruppe des Spielers zurück, z. B. `user`, `admin`, `superadmin`.
+
+
+Diese Events und Callbacks helfen dir, **myCharCreator** optimal an die Bedürfnisse deines Servers anzupassen und das Spielerlebnis zu verbessern.4

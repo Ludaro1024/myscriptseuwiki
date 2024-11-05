@@ -1,0 +1,47 @@
+---
+sidebar_position: 1
+title: Konfiguration
+sidebar_label: Konfiguration
+---
+
+Die `config.lua`-Datei für **myCharCreator** bietet eine Vielzahl an Einstellungsmöglichkeiten, die du an deine Anforderungen anpassen kannst.
+
+## Wichtige Konfigurationsoptionen
+
+### Grundlegende Einstellungen
+
+- **`Cfg.Locale`**: Legt die Sprache des Menüs fest (Standard: `'en'`). Unterstützte Sprachen: `en`, `de`.
+  
+- **`Cfg.FreezePlayerWhileInCreation`**: Hält den Spieler während der Charaktererstellung an einem festen Ort (`true` oder `false`).
+
+- **`Cfg.setDefaultOutfitOnGenderChange`**: Setzt beim Wechsel des Geschlechts ein voreingestelltes Outfit für männliche und weibliche Charaktere (`true` oder `false`).
+
+- **`Cfg.useCommand`**: Aktiviert den Befehl zur Charaktererstellung (`true` oder `false`).
+
+- **`Cfg.PermissionsRequired`**: Gibt an, ob Spieler über besondere Rechte verfügen müssen, um den Befehl zur Charaktererstellung zu verwenden (`true` oder `false`).
+
+- **`Cfg.AdminGroup`**: Spezifiziert die Admin-Gruppe, die den Charaktererstellungsbefehl ausführen kann, wenn `PermissionsRequired` aktiviert ist (Standard: `'superadmin'`).
+
+---
+
+### Anpassungsoptionen für das Erscheinungsbild
+
+**Standard-Outfits beim Geschlechterwechsel**  
+Die Standard-Outfits für männliche und weibliche Charaktere können unter `Cfg.defaultOutfits` festgelegt werden. Jeder Eintrag definiert einen spezifischen Charakterkomponenten-Typ und dessen Nummer, um ein vollständiges Outfit zu generieren.
+
+**Optionen für Gesichts- und Hautanpassung**  
+Die Liste `Cfg.AdvancedFaceParts` bietet individuelle Einstellungen für Gesichtsteile wie Nase, Kinn, Lippen und Wangen. Über `Cfg.intensity` kannst du die Anpassungsintensität in Schritten von 0.1 bis 1.0 festlegen.
+
+---
+
+### Auswahlmöglichkeiten für Gesichtsdetails
+
+- **`Cfg.complexion`**: Liste von Hauttönen, die in der Charaktererstellung zur Verfügung stehen.
+- **`Cfg.sundamage`**: Verschiedene Stufen von Sonnenschäden, um individuelle Looks zu erstellen.
+- **`Cfg.eyebrows`**: Auswahl von Augenbrauenformen.
+- **`Cfg.eyeColors`**: Optionen für die Augenfarben des Charakters.
+- **`Cfg.ageing`**: Altersstufen, die dem Charakter ein gealtertes Aussehen verleihen.
+
+---
+
+Für weitere Details zur Konfiguration kannst du den Code direkt in der Datei `config.lua` nachlesen und anpassen.
