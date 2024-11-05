@@ -1,83 +1,77 @@
 ---
-sidebar_position: 1
+sidebar_position: 2
 title: Überblick
 sidebar_label: Überblick
 ---
 
-**myCharCreator** ist ein benutzerfreundliches Charakter-Erstellungssystem für FiveM. Es bietet Spielern umfangreiche Anpassungsoptionen für das Aussehen ihrer Charaktere und stellt sicher, dass diese flexibel und individuell gestaltet werden können.
 
-## Hauptfunktionen von myCharCreator
+**myBilling** ist ein erweitertes Abrechnungssystem Es bietet eine Vielzahl von Funktionen, die über die Standard-Abrechnungssysteme hinausgehen.
 
-- **Intuitive Charaktererstellung**: Spieler können Geschlecht, Gesichtsstruktur, Hautfarbe, Kleidung und Accessoires ihres Charakters in einem übersichtlichen Menü anpassen.
-- **Automatische Standard-Outfits**: Legt je nach Geschlecht ein Standard-Outfit für Spieler fest, das beim Erstellen neuer Charaktere zugewiesen wird.
-- **Erweiterte Gesichtsoptionen**: Bietet Spielern detaillierte Anpassungsmöglichkeiten wie Nase, Lippen, Kinn, Wangen und mehr.
-- **Benutzerfreundliche Oberfläche**: NativeUI wird für die Menüführung verwendet und bietet ein klares und ansprechendes Interface für Spieler.
-- **Kompatibilität**: myCharCreator ist vollständig kompatibel mit **myMultichar** und dem mitgelieferten Skinchanger, sodass bestehende Charaktere auf einfache Weise verwaltet werden können.
+## Hauptfunktionen von myBilling
 
----
+- **Rechnungsbestätigung**: Bevor eine Rechnung wirksam wird, muss der Empfänger sie akzeptieren. Dies verhindert das unautorisierte Versenden von Rechnungen.
+- **Teilzahlungen**: Offene Rechnungen werden automatisch in Teilbeträgen zu festgelegten Zeiten beglichen. Spieler können ihre offenen Rechnungen einsehen und Restbeträge manuell begleichen.
+- **Rechnungsverwaltung**: Ein integriertes Menü ermöglicht es Spielern, ihre offenen und bezahlten Rechnungen zu verwalten.
+- **Benachrichtigungen**: Automatische Erinnerungen informieren Spieler über ausstehende Zahlungen.
+- **Kompatibilität**: Das System ist vollständig kompatibel mit bestehenden ESX-Skripten und erfordert keine Änderungen an anderen Ressourcen.
+- **Discord-Integration**: Optionale Webhooks ermöglichen Benachrichtigungen über ausgestellte Rechnungen in Discord-Kanälen.
 
-## Voraussetzungen
+## myBillingUI – Erweiterung für myBilling
 
-Stelle sicher, dass die folgenden Ressourcen korrekt installiert und in der `server.cfg` aktiviert sind, bevor du mit der Installation von myCharCreator fortfährst.
+Das **myBillingUI** ist eine optionale Erweiterung, die das Benutzererlebnis durch ein verbessertes Interface optimiert. es ändert nichts an den grundlegenden funktionen von myBilling
 
-1. **NativeUI**: Lade **NativeUI** herunter und platziere es im `resources`-Ordner. Es muss vor **myCharCreator** gestartet werden. Falls du bereits die richtige Version installiert hast, kannst du diesen Schritt überspringen.
-2. **Modifizierter Skinchanger**: myCharCreator verwendet eine angepasste Version des Skinchangers. Ersetze deinen vorhandenen Skinchanger mit der modifizierten Version, die mit myCharCreator geliefert wird.
+### Zusätzliche Funktionen von myBillingUI
 
----
+- **Visuelle Bestätigung**: Bei Erhalt einer Rechnung erscheint ein Dialogfenster mit der Möglichkeit, die Rechnung zu akzeptieren oder abzulehnen.
+- **Benutzerfreundliches Design**: Ein ansprechendes und intuitives Interface verbessert die Interaktion der Spieler mit dem Abrechnungssystem.
 
-## Installation von myCharCreator
+### Installation von myBilling
 
-Diese Anleitung beschreibt die Schritte zur Installation und Konfiguration von **myCharCreator** auf deinem FiveM-Server.
+Diese Anleitung beschreibt die Installation und Ersteinrichtung des **myBilling**-Skripts auf deinem FiveM-Server.
 
-### 1. Script-Installation
+#### 1. Voraussetzungen
 
-1. **Download und Platzierung**: Lade **myCharCreator** herunter und verschiebe den Ordner in deinen `resources`-Ordner.
-2. **Skinchanger ersetzen**: Ersetze den bisherigen Skinchanger durch die angepasste Version, die mit myCharCreator geliefert wird.
-3. **Server-Konfiguration**: Öffne deine `server.cfg` und füge die folgenden Zeilen hinzu, um sicherzustellen, dass die Skripte in der richtigen Reihenfolge gestartet werden:
+1. **NativeUI**: Lade **NativeUIReloaded** aus dem **#downloads**-Kanal im Discord herunter, falls es noch nicht installiert ist.
+   - Platziere **NativeUIReloaded** im `resources`-Ordner deines Servers.
+   - **Hinweis**: Stelle sicher, dass **NativeUIReloaded** vor **myBilling** in der `server.cfg`-Datei geladen wird.
 
-    ```lua
-    ensure NativeUI
-    ensure esx_skin
-    ensure myCharCreator
-    ```
+#### 2. Script-Start
 
-### 2. Konfiguration des skinchanger und Register-Scripts
-
-Falls du **myMultichar** nicht verwendest:
-- Gehe zu `esx_skin/client/main.lua` und ersetze in der Nähe von Zeile 260:
+1. **Download von myBilling**: Lade das **myBilling**-Skript herunter und entpacke es.
+2. **Platzierung**: Verschiebe den Ordner in den `resources`-Ordner deines FiveM-Servers.
+3. **Skript aktivieren**: Öffne die `server.cfg`-Datei und füge die folgenden Zeilen hinzu, um **NativeUIReloaded** und **myBilling** zu starten:
 
     ```lua
-    TriggerEvent('skinchanger:loadSkin', {sex = 0}, OpenSaveableMenu)
+    ensure NativeUIReloaded
+    ensure myBilling
     ```
 
-  durch:
+4. **Server-Neustart**: Starte deinen Server neu, um die Skripte zu laden.
 
-    ```lua
-    TriggerEvent('myCreator:openMenu')
-    ```
+#### 3. Konfiguration
 
-- Passe außerdem das **Register-Skript** (z. B. `esx_identity`) an, indem du ebenfalls das Event auf `'myCreator:openMenu'` änderst.
+1. **`config.lua` anpassen**: Navigiere zur `config.lua`-Datei im myBilling-Ordner, um die Einstellungen an deinen Server anzupassen. Hier sind die wichtigsten Konfigurationsoptionen:
 
-Falls du **myMultichar** verwendest, setze `Config.useMyCharCreator` in der Konfigurationsdatei auf `true`, um myCharCreator als Standard-Charaktererstellung zu nutzen.
+    - **`CanEverybodyGiveBills`**: Legt fest, ob alle Spieler Rechnungen ausstellen können (`true` oder `false`).
+    - **`WhitelistedJobs`**: Falls nur bestimmte Jobs Rechnungen ausstellen dürfen, gib hier eine Liste der erlaubten Jobs an (z.B. `{'police', 'ambulance'}`).
+    - **`PayBillsTime`**: Uhrzeit für automatische Teilzahlungen (im 24-Stunden-Format, z.B. `{h = 21, m = 00}`).
+    - **`enableKeyUsage`**: Aktiviert die Möglichkeit, das Rechnungsmenü per Taste zu öffnen (`true` oder `false`).
+    - **`Key`**: Wähle die Tasten-ID, um das Rechnungsmenü zu öffnen (z.B. `168` für F7).
+    - **`useDiscordWebhooks`**: Aktiviert Webhooks für Discord-Benachrichtigungen (`true` oder `false`).
+    - **`Webhooks`**: Setze in der `server.cfg` die gewünschten Webhook-URLs für Benachrichtigungen:
 
----
+      ```lua
+      set webhook_example "https://discordapp.com/api/webhooks/..."
+      ```
 
-## Konfiguration in der `config.lua`
+    Eine vollständige Beschreibung der Konfigurationsoptionen findest du in der [Konfigurationsübersicht](../Konfiguration/).
 
-myCharCreator bietet mehrere Anpassungsmöglichkeiten in der `config.lua`. Hier sind einige wichtige Einstellungen:
-
-- **`FreezePlayerWhileInCreation`**: Friert den Spieler während der Charaktererstellung ein, um die Kontrolle zu erleichtern (`true` oder `false`).
-- **`setDefaultOutfitOnGenderChange`**: Setzt bei Geschlechterwechsel automatisch das Standard-Outfit (`true` oder `false`).
-- **`useCommand`**: Aktiviert einen Befehl zur manuellen Charaktererstellung (`true` oder `false`).
-- **`PermissionsRequired`**: Bestimmt, ob nur Spieler mit bestimmten Rechten Zugriff auf den Befehl zur Charaktererstellung haben (`true` oder `false`).
-- **`AdminGroup`**: Setzt die Admin-Gruppe, die den Charaktererstellungsbefehl verwenden darf, falls `PermissionsRequired` aktiviert ist.
-
----
-
+## Youtube-Tutorial
+<ReactPlayer playing controls url='https://youtu.be/ZXGKTyP7HCI'/>
 ## Weiterführende Links
 
-- **Shop-Seite für myCharCreator**: [myCharCreator im myScripts Shop](https://luis-scripts.tebex.io/package/4238312)
-- **YouTube-Tutorial**: [Einführungsvideo zu myCharCreator](https://youtu.be/ZXGKTyP7HCI)
-- **Diskussionsforum**: [Cfx.re Community Beitrag zu myCharCreator](https://forum.cfx.re/t/esx-eng-de-mybills-billing-with-partial-payment-bill-requests-and-discord-webhooks/1953779)
+- **Shop-Seite für myBilling**: [myBilling im myScripts Shop](https://luis-scripts.tebex.io/package/4238312)
+- **Shop-Seite für myBillingUI**: [myBillingUI im myScripts Shop](https://luis-scripts.tebex.io/package/4290093)
+- **YouTube-Tutorial**: [Einführungsvideo zu myBilling](https://youtu.be/ZXGKTyP7HCI)
+- **Diskussionsforum**: [Cfx.re Community Beitrag zu myBilling](https://forum.cfx.re/t/esx-eng-de-mybills-billing-with-partial-payment-bill-requests-and-discord-webhooks/1953779)
 
-Für Support und weitere Updates kannst du dem [Discord-Server](https://discord.gg/UyAu2jABzE) beitreten.
